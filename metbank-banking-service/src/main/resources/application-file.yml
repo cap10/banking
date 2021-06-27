@@ -1,0 +1,98 @@
+spring:
+  zipkin:
+    base-url: http://192.168.1.200:9411/
+    sleuth:
+      sampler:
+        probability: 1
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mariadb://192.168.1.198:3306/akupay_banking?createDatabaseIfNotExist=true&useSSL=false&autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&failOverReadOnly=false&allowMultiQueries=true&serverTimezone=Africa/Harare&allowPublicKeyRetrieval=true
+    username: 'root'
+    password: 'skdcnwauicn2ucnaecasdsajdnizucawencascdca'
+    driver-class-name: org.mariadb.jdbc.Driver
+    hikari:
+      data-source-properties:
+        cachePrepStmts: true
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 2048
+        useServerPrepStmts: true
+        useLocalSessionState: true
+        rewriteBatchedStatements: true
+        cacheResultSetMetadata: true
+        cacheServerConfiguration: true
+        elideSetAutoCommits: true
+        maintainTimeStats: false
+    initialization-mode: always
+  jpa:
+    database-platform: org.hibernate.dialect.MariaDB103Dialect
+    database: MYSQL
+    show-sql: true
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: update
+
+    properties:
+      hibernate.id.new_generator_mappings: true
+      hibernate.connection.provider_disables_autocommit: true
+      hibernate.cache.use_second_level_cache: false
+      hibernate.cache.use_query_cache: false
+      hibernate.generate_statistics: false
+      hibernate.jdbc.batch_size: 500
+      hibernate.order_inserts: true
+      hibernate.order_updates: true
+      hibernate.query.fail_on_pagination_over_collection_fetch: true
+      hibernate.query.in_clause_parameter_padding: true
+  data:
+    jpa:
+      repositories:
+        bootstrap-mode: lazy
+
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+server:
+  port: 5678
+#  servlet:
+#    context-path: /api/v1/oauth-server
+security:
+  oauth2:
+    resource:
+      jwt:
+        key-value: JWTKey@123
+        key-uri: http://192.168.1.188:8201/oauth/token_key
+      id: 'carInventory'
+    client:
+      client-id: appclient
+      client-secret: appclient@123
+purge.cron.expression: 0 0 5 * * ?
+
+oauth-service:
+  url: http://localhost:8201
+  refresh: http://localhost:8765/api/v1/oauth-server/oauth/token
+
+#Eureka Client Configurations
+eureka: #tells about the Eureka server details and its refresh time
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/
+    healthcheck:
+      enabled: true
+    lease:
+      duration: 5
+
+
+management:
+  security:
+    enabled: false  #disable the spring security on the management endpoints like /env, /refresh etc.
+
+
