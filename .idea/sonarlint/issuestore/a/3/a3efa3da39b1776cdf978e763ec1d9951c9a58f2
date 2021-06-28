@@ -1,0 +1,35 @@
+
+V	java:S125I"<This block of commented-out lines of code should be removed.(Í×—ÿÿÿÿÿ
+O	java:S106"9Replace this use of System.out or System.err by a logger.(´¦ÎÇ
+k
+java:S4144İ"TUpdate this method so that its implementation is not identical to "b2W" on line 200.(ù­Ñ”
+\
+java:S1192r"GDefine a constant instead of duplicating this literal "yyhhmm" 4 times.(üÖÉ:
+Z
+java:S2147*"DCombine this catch with the one at line 40, which has the same body.(ï­£Ä
+T	java:S106¶"9Replace this use of System.out or System.err by a logger.(‚â¡‰üÿÿÿÿ
+r
+java:S1192"[Define a constant instead of duplicating this literal "############## Response:  " 3 times.(´¦ÎÇ
+`	java:S1122"FDefine and throw a dedicated exception instead of using a generic one.(¹ö­ùÿÿÿÿ
+k
+java:S1192ƒ"HDefine a constant instead of duplicating this literal "127.022" 3 times.(Üñµùÿÿÿÿ8î¶çê¤/
+’
+java:S1130"wRemove the declaration of thrown exception 'org.jpos.iso.ISOException', as it cannot be thrown from constructor's body.(†›õËøÿÿÿÿ
+Œ
+java:S1130"qRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from constructor's body.(†›õËøÿÿÿÿ
+Z
+java:S2147A"DCombine this catch with the one at line 63, which has the same body.(ï­£Ä
+C
+java:S1481U"-Remove this unused "response" local variable.(¹°Ö¿
+T	java:S106¿"9Replace this use of System.out or System.err by a logger.(À¬ë®ùÿÿÿÿ
+Z
+java:S2147]"DCombine this catch with the one at line 91, which has the same body.(ï­£Ä
+3
+java:S2119l"Save and re-use this "Random".(¼İÅf
+4
+java:S2119™"Save and re-use this "Random".(¼İÅf
+`	java:S112d"FDefine and throw a dedicated exception instead of using a generic one.(¹ö­ùÿÿÿÿ
+k
+java:S1192‚"HDefine a constant instead of duplicating this literal "127.019" 3 times.(œèºøıÿÿÿÿ8”çê¤/
+f
+java:S1192„"HDefine a constant instead of duplicating this literal "127.023" 3 times.(şõ¼Ò8ËÌçê¤/

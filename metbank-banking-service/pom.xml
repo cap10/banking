@@ -102,11 +102,7 @@
 
 
 
-        <dependency>
-            <groupId>io.github.invenico.commons</groupId>
-            <artifactId>spring-commons-module</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
+
 
     </dependencies>
 

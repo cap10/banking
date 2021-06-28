@@ -1,0 +1,46 @@
+
+f
+java:S1192<"KDefine a constant instead of duplicating this literal "MMddyyhhmm" 5 times.(ßŠ¦İùÿÿÿÿ
+a
+java:S1192F"KDefine a constant instead of duplicating this literal "1000010428" 5 times.(Ì³˜§
+]
+java:S1192:"GDefine a constant instead of duplicating this literal "540000" 5 times.(Ò™“÷
+^
+java:S1192A"HDefine a constant instead of duplicating this literal "CASHMET" 5 times.(Öºû‰
+^
+java:S1192Y"HDefine a constant instead of duplicating this literal "TIMEOUT" 5 times.(Ş­ñë
+k
+java:S1192["VDefine a constant instead of duplicating this literal "Transaction timed out" 5 times.(»Ì°T
+
+java:S1192m"sDefine a constant instead of duplicating this literal "############### Wallet to Bank Request: {}, {}, {}" 4 times.(¡™¬¢ùÿÿÿÿ
+_
+java:S1192_"IDefine a constant instead of duplicating this literal "COMPLETE" 5 times.(¦´–
+]
+java:S1192="HDefine a constant instead of duplicating this literal "yyhhmm" 10 times.(üÖÉ:
+`	java:S1124"FDefine and throw a dedicated exception instead of using a generic one.(¥†™ïüÿÿÿÿ
+`	java:S112l"FDefine and throw a dedicated exception instead of using a generic one.(¥†™ïüÿÿÿÿ
+a	java:S112£"FDefine and throw a dedicated exception instead of using a generic one.(¥†™ïüÿÿÿÿ
+a	java:S112Ü"FDefine and throw a dedicated exception instead of using a generic one.(¥†™ïüÿÿÿÿ
+a	java:S112™"FDefine and throw a dedicated exception instead of using a generic one.(¥†™ïüÿÿÿÿ
+N
+java:S3655³"7Call "Optional#isPresent()" before accessing the value.(éå…Æ
+N
+java:S3655ñ"7Call "Optional#isPresent()" before accessing the value.(Õ‘÷á
+N
+java:S3655«"7Call "Optional#isPresent()" before accessing the value.(Õ‘÷á
+O
+java:S18547":Remove this useless assignment to local variable "random".(¼İÅf
+3
+java:S21197"Save and re-use this "Random".(¼İÅf
+Z
+java:S2147R"DCombine this catch with the one at line 80, which has the same body.(ãšÕ§
+\
+java:S2147‰"ECombine this catch with the one at line 135, which has the same body.(ãšÕ§
+\
+java:S2147À"ECombine this catch with the one at line 190, which has the same body.(ãšÕ§
+\
+java:S2147ı"ECombine this catch with the one at line 251, which has the same body.(ãšÕ§
+\
+java:S2147À"ECombine this catch with the one at line 318, which has the same body.(ãšÕ§
+@
+java:S14817"+Remove this unused "random" local variable.(¼İÅf

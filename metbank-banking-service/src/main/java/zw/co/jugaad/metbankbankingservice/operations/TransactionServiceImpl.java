@@ -4,12 +4,13 @@ package zw.co.jugaad.metbankbankingservice.operations;
 import lombok.extern.slf4j.Slf4j;
 import org.jpos.iso.*;
 import org.springframework.stereotype.Service;
-import zw.co.invenico.springcommonsmodule.exception.RecordNotFoundException;
 import zw.co.jugaad.metbankbankingservice.model.MetBankTransfer;
 import zw.co.jugaad.metbankbankingservice.model.ResponseCode;
 import zw.co.jugaad.metbankbankingservice.repository.MetBankTransferRepository;
+import zw.co.jugaad.metbankbankingservice.util.FlexPackager;
 import zw.co.jugaad.metbankbankingservice.util.ISOConnection;
 
+import javax.persistence.EntityNotFoundException;
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
@@ -241,6 +242,7 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public ISOMsg settleMerchantBiller(MetBankTransfer transaction) throws IOException, ISOException {
         ISOMsg isoMsg = new ISOMsg();
+        isoMsg.setPackager(new FlexPackager());
         isoMsg.setMTI(transaction.getMti());
         isoMsg.set(3, transaction.getProcessingCode()); //processing code
         isoMsg.set(4, transaction.getAmount()); //transaction amount <---
@@ -255,9 +257,9 @@ public class TransactionServiceImpl implements TransactionService {
         isoMsg.set(49, transaction.getCurrencyCode()); //Currency Code, Transaction
         isoMsg.set(102, transaction.getAccountDebit()); //Account Identification 1 --> Debit
         isoMsg.set(103, transaction.getAccountCredit()); //Account Identification 2 --> Credit
-        isoMsg.set("127.001", transaction.getReceivingAccountNameRtgs());
-        isoMsg.set("127.002", transaction.getReceivingAccountNumberRtgs());
-        isoMsg.set("127.003", transaction.getReceivingBankSwiftCodeRtgs());
+        isoMsg.set("127.019", "Mapfunde");
+        isoMsg.set("127.022", "0183467663");
+        isoMsg.set("127.023", "AGRZZWHA");
         channel.send(isoMsg);
         return channel.receive();
     }
@@ -265,6 +267,7 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public ISOMsg reverse(MetBankTransfer transaction) throws IOException, ISOException {
         ISOMsg m3 = new ISOMsg();
+        m3.setPackager(new FlexPackager());
         m3.setMTI("0420");
         m3.set(3, "541000"); //processing code
         m3.set(4, transaction.getAmount()); //transaction amount <---
@@ -279,15 +282,16 @@ public class TransactionServiceImpl implements TransactionService {
         m3.set(49, transaction.getCurrencyCode()); //Currency Code, Transaction
         m3.set(102, transaction.getAccountDebit()); //Account Identification 1 --> Debit
         m3.set(103, transaction.getAccountCredit()); //Account Identification 2 --> Credit
-        m3.set("127.001", transaction.getReceivingAccountNameRtgs());
-        m3.set("127.002", transaction.getReceivingAccountNumberRtgs());
-        m3.set("127.003", transaction.getReceivingBankSwiftCodeRtgs());
+        m3.set("127.019", transaction.getReceivingAccountNameRtgs());
+        m3.set("127.022", transaction.getReceivingAccountNumberRtgs());
+        m3.set("127.023", transaction.getReceivingBankSwiftCodeRtgs());
         channel.send(m3);
         return channel.receive();
     }
 
     private String reverseTransactionThaTimedOut(MetBankTransfer transfer) throws ISOException, IOException {
         ISOMsg m3 = new ISOMsg();
+        m3.setPackager(new FlexPackager());
         m3.setMTI("0420");
         m3.set(3, "541000"); //processing code
         m3.set(4, transfer.getAmount()); //transaction amount <---
@@ -302,9 +306,9 @@ public class TransactionServiceImpl implements TransactionService {
         m3.set(49, transfer.getCurrencyCode()); //Currency Code, Transaction
         m3.set(102, transfer.getAccountDebit()); //Account Identification 1 --> Debit
         m3.set(103, transfer.getAccountCredit()); //Account Identification 2 --> Credit
-        m3.set("127.001", transfer.getReceivingAccountNameRtgs());
-        m3.set("127.002", transfer.getReceivingAccountNumberRtgs());
-        m3.set("127.003", transfer.getReceivingBankSwiftCodeRtgs());
+        m3.set("127.019", transfer.getReceivingAccountNameRtgs());
+        m3.set("127.022", transfer.getReceivingAccountNumberRtgs());
+        m3.set("127.023", transfer.getReceivingBankSwiftCodeRtgs());
         channel.send(m3);
         ISOMsg r = channel.receive();
         System.out.println("############## Response:  " + ISOUtil.dumpString(r.pack()));
@@ -327,7 +331,7 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public void updateTransactions(MetBankTransfer transaction, ISOMsg response) {
         MetBankTransfer transfer = metBankTransferRepository.findByRrn(transaction.getRrn()).orElseThrow(
-                () -> new RecordNotFoundException("Transaction does not exist")
+                () -> new EntityNotFoundException("Transaction does not exist")
         );
         transfer.setStatus(ResponseCode.valueOfCode(response.getString(39)).name());
         transfer.setResponseCode(response.getString(39));

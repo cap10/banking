@@ -1,0 +1,8 @@
+
+^
+java:S1128	"ARemove this unused import 'org.jpos.iso.packager.ISO87APackager'.(ΑψΖ8α‰αθ¤/
+W
+java:S18547"5Remove this useless assignment to local variable "r".(‘‰ϋÿÿÿÿ8α‰αθ¤/
+Z	java:S106)"9Replace this use of System.out or System.err by a logger.(ρ”έ°ϋÿÿÿÿ8α‰αθ¤/
+H
+java:S14817"&Remove this unused "r" local variable.(‘‰ϋÿÿÿÿ8α‰αθ¤/

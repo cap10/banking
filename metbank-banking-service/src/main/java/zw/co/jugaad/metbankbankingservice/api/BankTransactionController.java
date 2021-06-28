@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import zw.co.invenico.springcommonsmodule.exception.BusinessValidationException;
 import zw.co.jugaad.metbankbankingservice.ResponseMessage;
 import zw.co.jugaad.metbankbankingservice.model.MetBankTransfer;
 import zw.co.jugaad.metbankbankingservice.model.ResponseCode;
@@ -88,7 +87,7 @@ public class BankTransactionController {
         } catch (TimeoutException ex) {
             transaction.setStatus("TIMEOUT");
             transactionService.saveTransactions(transaction);
-            throw new BusinessValidationException("Transaction timed out");
+            throw new Exception("Transaction timed out");
         }
 
         transaction.setResponseCode(isoMsg.getString(39));
@@ -143,7 +142,7 @@ public class BankTransactionController {
         } catch (TimeoutException ex) {
             transaction.setStatus("TIMEOUT");
             transactionService.saveTransactions(transaction);
-            throw new BusinessValidationException("Transaction timed out");
+            throw new Exception("Transaction timed out");
         }
 
         transaction.setResponseCode(isoMsg.getString(39));
@@ -198,7 +197,7 @@ public class BankTransactionController {
         } catch (TimeoutException ex) {
             transaction.setStatus("TIMEOUT");
             transactionService.saveTransactions(transaction);
-            throw new BusinessValidationException("Transaction timed out");
+            throw new Exception("Transaction timed out");
         }
 
         transaction.setResponseCode(isoMsg.getString(39));
@@ -259,7 +258,7 @@ public class BankTransactionController {
         } catch (TimeoutException ex) {
             transaction.setStatus("TIMEOUT");
             transactionService.saveTransactions(transaction);
-            throw new BusinessValidationException("Transaction timed out");
+            throw new Exception("Transaction timed out");
         }
 
         transaction.setResponseCode(isoMsg.getString(39));
@@ -326,7 +325,7 @@ public class BankTransactionController {
         } catch (TimeoutException ex) {
             transaction.setStatus("TIMEOUT");
             transactionService.saveTransactions(transaction);
-            throw new BusinessValidationException("Transaction timed out");
+            throw new Exception("Transaction timed out");
         }
 
         transaction.setResponseCode(isoMsg.getString(39));

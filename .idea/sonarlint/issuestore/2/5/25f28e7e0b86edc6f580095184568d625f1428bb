@@ -1,0 +1,8 @@
+
+g	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(ί‰®•ϋÿÿÿÿ8Ν‹αθ¤/
+g	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(µχΡΩϋÿÿÿÿ8Ν‹αθ¤/
+a	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(ψªΪe8Ν‹αθ¤/
+
+java:S1130"nRemove the declaration of thrown exception 'java.io.IOException' which is a subclass of 'java.lang.Exception'.(ψªΪe8Ν‹αθ¤/
+
+java:S1130"tRemove the declaration of thrown exception 'org.jpos.iso.ISOException' which is a subclass of 'java.lang.Exception'.(ψªΪe8Ν‹αθ¤/
